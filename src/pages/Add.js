@@ -29,39 +29,41 @@ const Add = () => {
   return (
     <div>
       <h1 className='text-8xl font-bold text-center mt-10'>Add A New Casefile</h1>
+      <div className="flex justify-center items-center">
       <form onSubmit={handleSubmit} className='mt-20'>
         <label>Case Number: </label>
-        <input className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
           name="case_number"
           placeholder="enter case number"
           onChange={handleChange}
-          ></input>
+        ></input>
         <label>Offense: </label>
-        <input className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
           name="offense"
           placeholder="enter offense"
           onChange={handleChange}
-          ></input>
+        ></input>
         <label>Offense Date: </label>
-        <input className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
           name="offense_date"
           placeholder="enter offense date"
           onChange={handleChange}
           ></input>
         <label>Request: </label>
-        <input className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
           name="request"
           placeholder="enter request"
           onChange={handleChange}
-          ></input>
+        ></input>
         <label>Status: </label>
-        <input className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
           name="status"
           placeholder="enter status"
           onChange={handleChange}
-          ></input>
+        ></input>
         <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Submit</button>
       </form>
+      </div>
     </div>
   )
 }

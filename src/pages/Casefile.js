@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Edit from '../components/Edit';
 
 const Casefile = () => {
     const { id } = useParams();
@@ -62,8 +63,10 @@ const Casefile = () => {
                     <h3 className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                         {oneCase.createdAt}
                     </h3>
+                    <Edit oneCase={oneCase} id={id}/>
                 </div>
             )}
+
         </div>
     );
 };
