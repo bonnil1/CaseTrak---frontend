@@ -11,10 +11,10 @@ function App() {
 
   return (
     <div>
-      <Home />
-
       <Routes>
         {/* Login / Sign up */}
+
+        <Route path='/' element={<Home />}/>
 
         {/* Casefile  */}
         <Route path='/casefiles/:id' element={<Casefile />}/>
