@@ -1,4 +1,3 @@
-import './App.css';
 import Home from './pages/Home';
 import Casefile from './pages/Casefile';
 import Add from './pages/Add';

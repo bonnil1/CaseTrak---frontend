@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Home from './Home';
 
 const Casefile = () => {
     const { id } = useParams();
@@ -32,7 +31,7 @@ const Casefile = () => {
         <div>
             {oneCase && (
                 <div>
-                    <h1>Case Number: {oneCase.case_number}</h1>
+                    <h1 className='text-1xl font-bold ml-5'>Case Number: {oneCase.case_number}</h1>
                     <h3>Offense: {oneCase.offense}</h3>
                     <h3>Offense Date: {oneCase.offense_date}</h3>
                     <h3>Request: {oneCase.request}</h3>

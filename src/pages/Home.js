@@ -42,7 +42,7 @@ const Home = (props) => {
 
     return (
         <div>
-            <h1>Welcome to CaseTrack</h1>
+            <h1 className='text-4xl font-bold text-center mb-4'>Welcome to CaseTrack</h1>
             
 
             <Link to={'/casefiles/new'}>Add a Casefile</Link>
