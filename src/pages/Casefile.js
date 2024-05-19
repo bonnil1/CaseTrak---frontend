@@ -31,11 +31,37 @@ const Casefile = () => {
         <div>
             {oneCase && (
                 <div>
-                    <h1 className='text-1xl font-bold ml-5'>Case Number: {oneCase.case_number}</h1>
-                    <h3>Offense: {oneCase.offense}</h3>
-                    <h3>Offense Date: {oneCase.offense_date}</h3>
-                    <h3>Request: {oneCase.request}</h3>
-                    <h3>Status: {oneCase.status}</h3>
+                    <h1 className='text-8xl font-bold text-center mt-10'>Showing Casefile</h1>
+                    
+                    <h3>Case Number: </h3>
+                    <h3 className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                        {oneCase.case_number}
+                    </h3>
+
+                    <h3>Offense: </h3>
+                    <h3 className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                        {oneCase.offense}
+                    </h3>
+
+                    <h3>Offense Date: </h3>
+                    <h3 className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                        {oneCase.offense_date}
+                    </h3>
+
+                    <h3>Request: </h3>
+                    <h3 className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                        {oneCase.request}
+                    </h3>
+
+                    <h3>Status: </h3>
+                    <h3 className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                        {oneCase.status}
+                    </h3>
+
+                    <h3>Date Created:</h3>
+                    <h3 className='appearance-none block w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                        {oneCase.createdAt}
+                    </h3>
                 </div>
             )}
         </div>

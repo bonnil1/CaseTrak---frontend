@@ -42,19 +42,23 @@ const Home = (props) => {
 
     return (
         <div>
-            <h1 className='text-4xl font-bold text-center mb-4'>Welcome to CaseTrack</h1>
+            <h1 className='text-8xl font-bold text-center mt-10'>Welcome to CaseTrack</h1>
+            <p className='text-lg text-center mt-10'>Fulfilling all your case file tracking needs.</p>
             
-
-            <Link to={'/casefiles/new'}>Add a Casefile</Link>
             
-            <h1>Search for a Casefile</h1>
-            <form onSubmit={handleSubmit}>
-                <input
+            <div className='text-center mt-32'>
+                <p>Click here to</p>
+                <Link to={'/casefiles/new'} className='text-4xl' style={{margin: 'auto'}}>Add a Casefile</Link>
+            </div>
+            
+            <h1 className='text-4xl text-center mt-20'>Search for a Casefile</h1>
+            <form onSubmit={handleSubmit} className='text-center mt-10'>
+                <input className='appearance-none w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100'
                     name="case_number"
                     placeholder="enter case number"
                     onChange={handleChange}
                 ></input>
-                <button type="submit">Submit</button>
+                <button type="submit" className='ml-5 border border-black py-2 px-3 rounded hover:bg-blue-100'>Submit</button>
             </form>
         </div>
     )

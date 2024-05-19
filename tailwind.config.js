@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js, ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'blue-background': "url('https://www.transparenttextures.com/patterns/diagonal-waves.png')",
+      }
+    },
   },
   plugins: [],
 }
