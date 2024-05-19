@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-const Home = () => {
+const Home = (props) => {
     const navigate = useNavigate();
     const [search, setSearch] = useState("")
 

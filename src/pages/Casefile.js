@@ -1,27 +1,46 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Home from './Home';
 
-const Casefile = (id) => {
+const Casefile = () => {
+    const { id } = useParams();
+    const [oneCase, setOneCase] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const [oneCase, setOneCase] = useState(null)
+    useEffect(() => {
+        const getCase = async () => {
+            try {
+                const response = await fetch(`http://localhost:4000/casefiles/${id}`);
+                const data = await response.json();
+                console.log(data)
+                setOneCase(data);
+                setLoading(false); 
+            } catch (error) {
+                console.log("Cannot fetch case detail.", error);
+                setLoading(false); 
+            }
+        };
 
-    const getCase = async() => {
-        try {
-            const response = await fetch(`http://localhost:4000/casefiles/${id}`)
-            const data = await response.json()
-            setOneCase(data.data)
-        } catch (error){
-            console.log("Cannot fetch case detail.")
-        }
+        getCase();
+    }, [id]);
+
+    if (loading) {
+        return <h1>Loading...</h1>;
     }
 
     return (
         <div>
-            <h1>Case Number: {oneCase.case_number}</h1>
-            <h1>Request: {oneCase.request}</h1>
-            <h1>Status: {oneCase.status}</h1>
+            {oneCase && (
+                <div>
+                    <h1>Case Number: {oneCase.case_number}</h1>
+                    <h3>Offense: {oneCase.offense}</h3>
+                    <h3>Offense Date: {oneCase.offense_date}</h3>
+                    <h3>Request: {oneCase.request}</h3>
+                    <h3>Status: {oneCase.status}</h3>
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default Casefile
+export default Casefile;
