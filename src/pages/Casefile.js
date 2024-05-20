@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Edit from '../components/Edit';
+import Delete from '../components/Delete';
 
 const Casefile = () => {
     const { id } = useParams();
@@ -64,6 +65,7 @@ const Casefile = () => {
                         {oneCase.createdAt}
                     </h3>
                     <Edit oneCase={oneCase} id={id}/>
+                    <Delete id={id}/>
                 </div>
             )}
 

@@ -69,33 +69,3 @@ const Add = () => {
 }
 
 export default Add
-
-/*
-
-useEffect(() => {
-    const fetchForm = async () => {
-        try {
-          const response = await fetch(`http://localhost:4000/casefiles/new`);
-          const html = await response.text()
-          setForm(html);
-        } catch (error) {
-          console.log("Could not fetch form", error)
-        }
-    }
-    fetchForm()
-  }, [])
-
-  return (
-   
-      <form onSubmit={handleSubmit}>
-      <div dangerouslySetInnerHTML={{ __html: form }}></div>
-      <input type="text" name="date" onChange={handleChange} />
-      <input
-        name="case_number"
-        placeholder="enter case number"
-        onChange={handleChange}
-        ></input>
-      <button type="submit">Submit</button>
-    </form>
-  )
-*/
