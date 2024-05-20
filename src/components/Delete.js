@@ -19,7 +19,7 @@ const Delete = ({id}) => {
 
     return (
         <div>
-            <input type="button" value="Delete" onClick={removeCase}/>
+            <input type="button" value="Delete" onClick={removeCase} className='bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border border-gray rounded'/>
         </div>
     )
 }

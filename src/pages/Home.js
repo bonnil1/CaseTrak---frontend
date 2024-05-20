@@ -8,8 +8,6 @@ const Home = (props) => {
 
     const [oneCase, setOneCase] = useState(null)
 
-    //const URL = `http://localhost:3000/casefiles/${id}`
-
     const fetchCasefile = async () => {
         try {
             const response = await fetch(`http://localhost:4000/casefiles/?case_number=${search.case_number}`);
@@ -53,12 +51,12 @@ const Home = (props) => {
             
             <h1 className='text-4xl text-center mt-20'>Search for a Casefile</h1>
             <form onSubmit={handleSubmit} className='text-center mt-10'>
-                <input className='appearance-none w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100'
+                <input className='appearance-none w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-200'
                     name="case_number"
                     placeholder="enter case number"
                     onChange={handleChange}
                 ></input>
-                <button type="submit" className='ml-5 border border-black py-2 px-3 rounded hover:bg-blue-100'>Submit</button>
+                <button type="submit" className='ml-5 border border-black py-2 px-3 rounded hover:bg-blue-200'>Submit</button>
             </form>
         </div>
     )
