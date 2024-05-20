@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react'
 const Home = (props) => {
     const navigate = useNavigate();
     const [search, setSearch] = useState("")
-
     const [oneCase, setOneCase] = useState(null)
+    const [response, setResponse] = useState(true)
 
     const fetchCasefile = async () => {
         try {
@@ -15,7 +15,6 @@ const Home = (props) => {
             if (!response.ok) {
                 throw new Error("Cannot fetch casefile.")
             }
-
             const data = await response.json()
                 console.log(data)
             const id = data._id
@@ -23,6 +22,7 @@ const Home = (props) => {
             setOneCase(data)
             navigate(`/casefiles/${id}`)
         } catch (error) {
+            setResponse(false)
             console.error(`Cannot fetch casefile.`, error)
         }
     }
@@ -58,6 +58,9 @@ const Home = (props) => {
                 ></input>
                 <button type="submit" className='ml-5 border border-black py-2 px-3 rounded hover:bg-blue-200'>Submit</button>
             </form>
+            {response === false ? (
+                <h1 className='text-center text-red-500'>No case file with that case number exists.</h1>
+            ) : null}
         </div>
     )
 }

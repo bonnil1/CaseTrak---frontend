@@ -71,7 +71,6 @@ const Casefile = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };

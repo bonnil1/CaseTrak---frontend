@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import Casefile from './pages/Casefile';
 import Add from './pages/Add';
+import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <div>
+      <Header />
       <Routes>
         {/* Login / Sign up */}
 
