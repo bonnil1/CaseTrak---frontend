@@ -43,7 +43,6 @@ const Home = (props) => {
             <h1 className='text-8xl font-bold text-center mt-10'>Welcome to CaseTrack</h1>
             <p className='text-lg text-center mt-10'>Fulfilling all your case file tracking needs.</p>
             
-            
             <div className='text-center mt-32'>
                 <p>Click here to</p>
                 <Link to={'/casefiles/new'} className='text-4xl' style={{margin: 'auto'}}>Add a Casefile</Link>

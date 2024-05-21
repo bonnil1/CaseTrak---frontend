@@ -19,7 +19,8 @@ function App() {
 
         {/* Casefile  */}
         <Route path='/casefiles/:id' element={<Casefile />}/>
-        <Route path='casefiles/new' element={<Add />}/>
+        <Route path='/casefiles/:id/evidence/:evidenceId' element={<Casefile />}/>
+        <Route path='/casefiles/new' element={<Add />}/>
 
         {/* Investigator + Evidence */}
         <Route/>

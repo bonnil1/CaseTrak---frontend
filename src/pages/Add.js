@@ -18,7 +18,7 @@ const Add = () => {
       });
       navigate('/')
     } catch (error){
-      console.log("Could not create form", error)
+      console.log("Could not create case file form", error)
     }
   }
 
