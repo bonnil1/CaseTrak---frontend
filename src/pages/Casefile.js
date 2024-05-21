@@ -4,11 +4,11 @@ import { useParams } from 'react-router-dom';
 import Edit from '../components/Edit';
 import Delete from '../components/Delete';
 import Evidence from '../components/Evidence';
+import Investigator from '../components/Investigator';
 
 const Casefile = () => {
     const { id } = useParams();
     const [oneCase, setOneCase] = useState(null);
-    const [evidence, setEvidence] = useState(null)
     const [loading, setLoading] = useState(true);
 
     const getCase = async () => {
@@ -23,21 +23,9 @@ const Casefile = () => {
             setLoading(false); 
         }
     };
-/*
-    const getEvidence = async () => {
-        try {
-            const response = await fetch(`http://localhost:4000/casefiles/${id}/evidence`);
-            const data = await response.json()
-            console.log(data)
-            setEvidence(data)
-        } catch (error) {
-            console.log("Cannot fetch evidence", error)
-        }
-    }
-*/
+
     useEffect(() => {
         getCase();
-        //getEvidence();
     }, [id]);
 
     if (loading) {
@@ -46,11 +34,15 @@ const Casefile = () => {
 
     return (
         <div>
+            
             {oneCase && (
                 <div>
                     <h1 className='text-8xl font-bold text-center mt-10'>Showing Casefile</h1>
-                    <div className="flex flex-col items-center mt-20">
-
+                    <div className="flex flex-col items-center mt-10">
+                    <div className='flex mb-5'>
+                        <Edit getCase={getCase} oneCase={oneCase} id={id}/>
+                        <Delete id={id}/>
+                    </div>
                         <h3>Case Number: </h3>
                         <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                             {oneCase.case_number}
@@ -80,15 +72,16 @@ const Casefile = () => {
                         <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                             {oneCase.createdAt}
                         </h3>
-                        <Edit getCase={getCase} oneCase={oneCase} id={id}/>
-                        <Delete id={id}/>
-                        <div className='mt-5'><Evidence getCase={getCase} id={id} /></div>
-                    </div>
 
+                        <div className='flex mt-5'>
+                            <Evidence getCase={getCase} id={id} />
+                            <Investigator getCase={getCase} id={id} />
+                        </div>
+                    </div>
+                <h1 className='text-2xl text-bold text-center mt-5'>Evidence Item(s):</h1>
                 {oneCase.evidence.map((ev, index) => (
-                    
                         <React.Fragment key={index}>
-                            <div className="flex flex-col items-center mt-10">
+                            <div className="flex flex-col items-center mt-5">
                             <h3>Item Number: </h3>
                             <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                                 {ev.number}
@@ -111,6 +104,32 @@ const Casefile = () => {
                             </div>
                         </React.Fragment>
                 ))}
+                <h1 className='text-2xl text-bold text-center mt-5'>Requesting Investigator(s):</h1>
+                {oneCase.investigator.map((inv, index) => (
+                        <React.Fragment key={index}>
+                            <div className="flex flex-col items-center mt-5">
+                            <h3>Name: </h3>
+                            <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                {inv.name}
+                            </h3>
+
+                            <h3>Unit: </h3>
+                            <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                {inv.unit}
+                            </h3>
+
+                            <h3>Contact Number: </h3>
+                            <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                {inv.number}
+                            </h3>
+
+                            <h3>Email: </h3>
+                            <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                {inv.email}
+                            </h3>
+                            </div>
+                        </React.Fragment>
+                ))}
                 </div>
             )}
         </div>
@@ -118,35 +137,3 @@ const Casefile = () => {
 };
 
 export default Casefile;
-
-/*
-{ evidence && (
-                oneCase.evidence.map((ev, index) => {
-                    return (
-                        <React.Fragment key={index}>
-                            <div className="flex flex-col items-center mt-10">
-                            <h3>Item Number: </h3>
-                            <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                                {ev.number}
-                            </h3>
-
-                            <h3>Type: </h3>
-                            <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                                {ev.type}
-                            </h3>
-
-                            <h3>Description: </h3>
-                            <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                                {ev.description}
-                            </h3>
-
-                            <h3>Location: </h3>
-                            <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                                {ev.location}
-                            </h3>
-                            </div>
-                        </React.Fragment>
-                    )
-                })
-            )}
-*/
