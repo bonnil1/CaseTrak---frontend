@@ -63,7 +63,7 @@ const Investigator = ({getCase, id}) => {
                 <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Submit</button>
                 </form>
             ) : (
-                <input type="button" value="Investigator" onClick={handleAdd} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'/>
+                <input type="button" value="(+) Investigator" onClick={handleAdd} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'/>
             )}
         </div>
     )

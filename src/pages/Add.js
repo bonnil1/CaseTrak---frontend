@@ -16,7 +16,12 @@ const Add = () => {
         },
         body: JSON.stringify(formData)
       });
-      navigate('/')
+      if (response.ok) {
+        const data = await response.json()
+        //console.log(data)
+        const id = data._id
+        navigate(`/casefiles/${id}`)
+      }
     } catch (error){
       console.log("Could not create case file form", error)
     }
