@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import Casefile from './pages/Casefile';
 import Add from './pages/Add';
+import All from './pages/All';
 import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/casefiles/:id/evidence/:evidenceId' element={<Casefile />}/>
         <Route path='/casefiles/:id/investigators/:investigatorId' element={<Casefile />}/>
         <Route path='/casefiles/new' element={<Add />}/>
+        <Route path='/casefiles' element={<All />}/>
 
         {/* Investigator + Evidence */}
         <Route/>

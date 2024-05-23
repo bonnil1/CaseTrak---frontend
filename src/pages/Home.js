@@ -60,6 +60,10 @@ const Home = (props) => {
             {response === false ? (
                 <h1 className='text-center text-red-500'>No case file with that case number exists.</h1>
             ) : null}
+            <div className='text-center mt-20'>
+                <p>Click here to</p>
+                <Link to={'/casefiles'} className='text-4xl' style={{margin: 'auto'}}>See All Casefiles</Link>
+            </div>
         </div>
     )
 }
