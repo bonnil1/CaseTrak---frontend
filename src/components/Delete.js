@@ -6,7 +6,7 @@ const Delete = ({id}) => {
     const navigate = useNavigate()
 
     const deleteCase = async () => {
-        await fetch(`${process.env.CASE_TRAK_URL}/casefiles/${id}`, {
+        await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}`, {
             method: "DELETE",
         })
     }

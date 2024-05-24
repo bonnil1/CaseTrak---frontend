@@ -10,7 +10,7 @@ const Home = (props) => {
 
     const fetchCasefile = async () => {
         try {
-            const response = await fetch(`${process.env.CASE_TRAK_URL}/casefiles/?case_number=${search.case_number}`);
+            const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/?case_number=${search.case_number}`);
             console.log(search.case_number)
             if (!response.ok) {
                 throw new Error("Cannot fetch casefile.")

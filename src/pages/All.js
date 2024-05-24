@@ -7,7 +7,7 @@ const All = () => {
 
     const fetchCasefiles = async () => {
         try {
-            const response = await fetch(`${process.env.CASE_TRAK_URL}/casefiles/all`)
+            const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/all`)
             const data = await response.json()
             setCasefiles(data)
             console.log(data)

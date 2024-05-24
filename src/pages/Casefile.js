@@ -13,7 +13,7 @@ const Casefile = () => {
 
     const getCase = async () => {
         try {
-            const response = await fetch(`${process.env.CASE_TRAK_URL}/casefiles/${id}`);
+            const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}`);
             const data = await response.json();
             console.log(data)
             setOneCase(data);

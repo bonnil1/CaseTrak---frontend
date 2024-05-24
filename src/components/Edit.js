@@ -10,7 +10,7 @@ const Edit = ({getCase, oneCase, id}) => {
     const updateCase = async (oneCase, id) => {
         console.log(oneCase)
         try {
-            await fetch(`${process.env.CASE_TRAK_URL}/casefiles/${id}`, {
+            await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

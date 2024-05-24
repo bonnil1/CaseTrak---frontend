@@ -9,7 +9,7 @@ const Add = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch(`${process.env.CASE_TRAK_URL}/casefiles`, {
+      const response = await fetch(`${process.env.REACT_APP_URL}/casefiles`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
