@@ -18,7 +18,7 @@ const Evidence = ({getCase, id}) => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            const response = await fetch(`http://localhost:4000/casefiles/${id}/evidence`, {
+            const response = await fetch(`${process.env.CASE_TRAK_URL}/casefiles/${id}/evidence`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

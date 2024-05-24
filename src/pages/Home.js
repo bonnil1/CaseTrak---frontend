@@ -10,7 +10,7 @@ const Home = (props) => {
 
     const fetchCasefile = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/casefiles/?case_number=${search.case_number}`);
+            const response = await fetch(`${process.env.CASE_TRAK_URL}/casefiles/?case_number=${search.case_number}`);
             console.log(search.case_number)
             if (!response.ok) {
                 throw new Error("Cannot fetch casefile.")
@@ -45,7 +45,7 @@ const Home = (props) => {
             
             <div className='text-center mt-32'>
                 <p>Click here to</p>
-                <Link to={'/casefiles/new'} className='text-4xl' style={{margin: 'auto'}}>Add a Casefile</Link>
+                <Link to={'/casefiles/new'} className='text-4xl underline decoration-blue-500' style={{margin: 'auto'}}>Add a Casefile</Link>
             </div>
             
             <h1 className='text-4xl text-center mt-20'>Search for a Casefile</h1>
@@ -62,7 +62,7 @@ const Home = (props) => {
             ) : null}
             <div className='text-center mt-20'>
                 <p>Click here to</p>
-                <Link to={'/casefiles'} className='text-4xl' style={{margin: 'auto'}}>See All Casefiles</Link>
+                <Link to={'/casefiles'} className='text-4xl underline decoration-blue-500' style={{margin: 'auto'}}>See All Casefiles</Link>
             </div>
         </div>
     )

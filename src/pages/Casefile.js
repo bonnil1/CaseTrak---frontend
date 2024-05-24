@@ -13,7 +13,7 @@ const Casefile = () => {
 
     const getCase = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/casefiles/${id}`);
+            const response = await fetch(`${process.env.CASE_TRAK_URL}/casefiles/${id}`);
             const data = await response.json();
             console.log(data)
             setOneCase(data);
@@ -71,7 +71,7 @@ const Casefile = () => {
 
                 <h3>Date Created:</h3>
                 <h3 className='appearance-none block w-1/3 bg-blue-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                    {oneCase.createdAt}
+                    {new Date(oneCase.createdAt).toLocaleDateString()}
                 </h3>
 
                 <div className='flex mt-5'>
