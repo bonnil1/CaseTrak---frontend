@@ -37,25 +37,25 @@ const Investigator = ({getCase, id}) => {
                 <form onSubmit={handleSubmit} className='mt-10'>
                 <h1 className='text-2xl font-bold text-center mb-5'>Add Investigator</h1>
                 <label>Name: </label>
-                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
                   name="name"
                   placeholder="enter name"
                   onChange={handleChange}
                 ></input>
                 <label>Unit: </label>
-                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
                   name="unit"
                   placeholder="enter unit"
                   onChange={handleChange}
                 ></input>
                 <label>Contact Number: </label>
-                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
                   name="number"
                   placeholder="enter contact number"
                   onChange={handleChange}
                 ></input>
                 <label>Email: </label>
-                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
                   name="email"
                   placeholder="enter email"
                   onChange={handleChange}

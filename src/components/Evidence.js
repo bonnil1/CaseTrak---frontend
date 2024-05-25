@@ -38,25 +38,25 @@ const Evidence = ({getCase, id}) => {
                 <form onSubmit={handleSubmit} className='mt-10'>
                 <h1 className='text-2xl font-bold text-center mb-5'>Add Evidence</h1>
                 <label>Item Number: </label>
-                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
                   name="number"
                   placeholder="enter item number"
                   onChange={handleChange}
                 ></input>
                 <label>Type: </label>
-                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
                   name="type"
                   placeholder="enter evidence type"
                   onChange={handleChange}
                 ></input>
                 <label>Description: </label>
-                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
                   name="description"
                   placeholder="enter description"
                   onChange={handleChange}
                 ></input>
                 <label>Location: </label>
-                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+                <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
                   name="location"
                   placeholder="enter location"
                   onChange={handleChange}

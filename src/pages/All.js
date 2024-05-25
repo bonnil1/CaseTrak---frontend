@@ -22,9 +22,9 @@ const All = () => {
 
     return (
         <div>
-            <h1 className='text-8xl font-bold text-center mt-10'>Viewing All Casefiles</h1>
+            <h1 className='text-7xl font-bold text-center mt-10'>Viewing All Casefiles</h1>
             {casefiles.map((casefile) => (
-                <div key={casefile._id} className='text-4xl text-center mt-10 underline decoration-sky-500'>
+                <div key={casefile._id} className='text-2xl text-center mt-10 underline decoration-sky-500'>
                     <Link to={`/casefiles/${casefile._id}`}>Case Number: {casefile.case_number}</Link>
                 </div>
             ))}

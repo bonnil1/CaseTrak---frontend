@@ -87,7 +87,7 @@ const Edit = ({getCase, oneCase, id}) => {
                     </form>
                 </div>
             ) : (
-                <input type="button" value="Edit" onClick={handleEdit} className='bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border border-gray rounded mr-5'/>
+                <input type="button" value="Edit" onClick={handleEdit} className='bg-gray-500 hover:bg-gray-600 text-white font-bold py-1 px-4 border border-gray rounded mr-5'/>
             )}
         </div>
     )

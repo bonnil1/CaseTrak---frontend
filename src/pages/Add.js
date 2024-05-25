@@ -33,7 +33,7 @@ const Add = () => {
 
   return (
     <div>
-      <h1 className='text-8xl font-bold text-center mt-10'>Add A New Casefile</h1>
+      <h1 className='text-7xl font-bold text-center mt-10'>Add A New Casefile</h1>
       <div className="flex justify-center items-center">
       <form onSubmit={handleSubmit} className='mt-20'>
         <label>Case Number: </label>
