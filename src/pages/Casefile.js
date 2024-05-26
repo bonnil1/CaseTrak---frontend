@@ -5,7 +5,8 @@ import Edit from '../components/Edit';
 import Delete from '../components/Delete';
 import Evidence from '../components/Evidence';
 import Investigator from '../components/Investigator';
-import { Accordion, AccordionContent, AccordionPanel, AccordionTitle } from 'flowbite-react';
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const Casefile = () => {
     const { id } = useParams();
@@ -73,81 +74,127 @@ const Casefile = () => {
                         {new Date(oneCase.createdAt).toLocaleDateString()}
                     </h3>
     
-                    <div className='flex mt-5'>
+                    <div className='flex mt-5 mb-10'>
                         <Evidence getCase={getCase} id={id} />
                         <Investigator getCase={getCase} id={id} />
                     </div>
                     </div>
-        
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-            {oneCase.evidence.length > 0 && (
-            <React.Fragment>
-                <Accordion style={{ width: '50%'}}>
-                    <AccordionPanel>
-                        <AccordionTitle><h1 className='text-2xl text-bold text-center mt-5'>Evidence Item(s):</h1></AccordionTitle>
-                        <AccordionContent style={{ background: '#b0c4de' }}>
-                {oneCase.evidence.map((ev, index) => (
-                    <React.Fragment key={index}>
-                        <div className="flex flex-col items-center mt-5">
-                        <h3>Item Number: </h3>
-                        <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                            {ev.number}
-                        </h3>
-    
-                        <h3>Type: </h3>
-                        <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                            {ev.type}
-                        </h3>
-    
-                        <h3>Description: </h3>
-                        <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                            {ev.description}
-                        </h3>
-    
-                        <h3>Location: </h3>                                
-                        <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                            {ev.location}
-                        </h3>
-                        </div>
-                    </React.Fragment>
-                ))} 
-                        </AccordionContent>
-                    </AccordionPanel>
-                </Accordion>    
-            </React.Fragment>
-            )}
+    <div className='text-center'> 
+    {oneCase && oneCase.evidence.length > 0 && (
+    <Menu as="div" className="relative inline-block text-right mb-96 mr-5">
+        <div>
+            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-stone-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-stone-400">
+            Evidence(s): {oneCase.evidence.length}
+            <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+            </MenuButton>
+        </div>
+
+        <Transition
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+        >
+        <MenuItems className="absolute z-10 mt-2 w-96 origin-top-right rounded-md bg-slate-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-scroll">
+            <div className="py-1 h-96 overflow-y-scroll">
+                <MenuItem>
+                {({ focus }) => (
+                    <p>
+                        <React.Fragment>
+                            {oneCase.evidence.map((ev, index) => (
+                            <React.Fragment key={index}>
+                                <div className="flex flex-col items-center mt-5">
+                                    <h3>Item Number: </h3>
+                                    <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                        {ev.number}
+                                    </h3>
+
+                                    <h3>Type: </h3>
+                                    <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                        {ev.type}
+                                    </h3>
+
+                                    <h3>Description: </h3>
+                                    <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                        {ev.description}
+                                    </h3>
+
+                                    <h3>Location: </h3>                                
+                                    <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                        {ev.location}
+                                    </h3>
+                                </div>
+                            </React.Fragment>
+                            ))}
+                        </React.Fragment>
+                    </p>
+                )}
+                </MenuItem>
             </div>
-    
-            {oneCase.investigator.length > 0 && (
-            <React.Fragment>
-                <h1 className='text-2xl text-bold text-center mt-5'>Requesting Investigator(s):</h1>
-                {oneCase.investigator.map((inv, index) => (
-                    <React.Fragment key={index}>
-                        <div className="flex flex-col items-center mt-5">
-                        <h3>Name: </h3>
-                        <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                                {inv.name}
-                        </h3>
-    
-                        <h3>Unit: </h3>
-                        <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                            {inv.unit}
-                        </h3>
-    
-                        <h3>Contact Number: </h3>
-                        <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                            {inv.number}
-                        </h3>
-    
-                        <h3>Email: </h3>
-                        <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
-                            {inv.email}
-                        </h3>
-                        </div>
-                    </React.Fragment>
-                ))}
-            </React.Fragment>
-            )}
+            </MenuItems>
+        </Transition>
+    </Menu>
+    )}
+    {oneCase.investigator.length > 0 && (
+    <Menu as="div" className="relative inline-block text-right mb-96">
+        <div>
+            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-stone-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-stone-400">
+            Investigator(s): {oneCase.investigator.length}
+            <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+            </MenuButton>
+        </div>
+
+        <Transition
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+        >
+        <MenuItems className="absolute z-10 mt-2 w-96 origin-top-right rounded-md bg-slate-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-scroll">
+            <div className="py-1 h-96 overflow-y-scroll">
+                <MenuItem>
+                {({ focus }) => (
+                    <p> 
+                        <React.Fragment>
+                            {oneCase.investigator.map((inv, index) => (
+                                <React.Fragment key={index}>
+                                    <div className="flex flex-col items-center mt-5">
+                                    <h3>Name: </h3>
+                                    <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                        {inv.name}
+                                    </h3>
+                
+                                    <h3>Unit: </h3>
+                                    <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                        {inv.unit}
+                                    </h3>
+                
+                                    <h3>Contact Number: </h3>
+                                    <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                        {inv.number}
+                                    </h3>
+                
+                                    <h3>Email: </h3>
+                                    <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                                        {inv.email}
+                                    </h3>
+                                    </div>
+                                </React.Fragment>
+                            ))}
+                        </React.Fragment>
+                    </p>
+                )}
+                </MenuItem>
+            </div>
+            </MenuItems>
+        </Transition>
+    </Menu>
+    )}
+    </div>
             </div>
         )}
     </div>
