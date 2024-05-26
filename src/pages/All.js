@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-const All = () => {
+const All = (props) => {
 
     const [casefiles, setCasefiles] = useState([])
 
@@ -22,12 +23,18 @@ const All = () => {
 
     return (
         <div>
-            <h1 className='text-7xl font-bold text-center mt-10'>Viewing All Casefiles</h1>
-            {casefiles.map((casefile) => (
-                <div key={casefile._id} className='text-2xl text-center mt-10 underline decoration-sky-500'>
-                    <Link to={`/casefiles/${casefile._id}`}>Case Number: {casefile.case_number}</Link>
-                </div>
-            ))}
+            {props.isLoggedIn ? 
+            <React.Fragment>
+                <h1 className='text-7xl font-bold text-center mt-10'>Viewing All Casefiles</h1>
+                {casefiles.map((casefile) => (
+                    <div key={casefile._id} className='text-2xl text-center mt-10 underline decoration-sky-500'>
+                        <Link to={`/casefiles/${casefile._id}`}>Case Number: {casefile.case_number}</Link>
+                    </div>
+                ))}
+            </React.Fragment>
+                : 
+            <h1 className='text-xl text-center mt-32'>Sign up / Log in to view case information.</h1>
+        }
         </div>
     )
 }

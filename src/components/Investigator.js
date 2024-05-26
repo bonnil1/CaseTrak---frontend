@@ -6,6 +6,7 @@ const Investigator = ({getCase, id}) => {
     const navigate = useNavigate()
     const [addInvestigator, setAddInvestigator] = useState(false)
     const [formData, setFormData] = useState({})
+    const token = localStorage.getItem("authToken")
 
     const handleAdd = () => {
         setAddInvestigator(true)
@@ -21,7 +22,8 @@ const Investigator = ({getCase, id}) => {
             const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}/investigators`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "authorization": token 
                 },
                 body: JSON.stringify(formData)
             })
@@ -29,12 +31,13 @@ const Investigator = ({getCase, id}) => {
         } catch (error) {
             console.log("Could not create investigator form.", error)
         }
+    
     }
 
     return (
         <div>
             {addInvestigator === true ? (
-                <form onSubmit={handleSubmit} className='mt-10'>
+                <form onSubmit={handleSubmit} className='mt-10 ml-5'>
                 <h1 className='text-2xl font-bold text-center mb-5'>Add Investigator</h1>
                 <label>Name: </label>
                 <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'

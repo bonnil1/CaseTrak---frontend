@@ -16,6 +16,7 @@ const Header = ({isLoggedIn, handleLogout}) => {
 
   const notLoggedIn = (
     <div>
+      <Link to="/signup"  className='text-2xl font-bold text-blue-500 hover:text-blue-600 mr-10'>signup</Link>
       <Link to="/login" className='text-2xl font-bold text-blue-500 hover:text-blue-600 mr-10'>login </Link>
     </div>
   )

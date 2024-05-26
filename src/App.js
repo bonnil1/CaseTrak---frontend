@@ -81,14 +81,14 @@ function App() {
         {/*<Route path='/auth' element={<Auth />}/>*/}
         <Route path='/login' element={<Login handleLogin={handleLogin}/>} />
         <Route path='signup' element={<Signup handleSignUp={handleSignUp} />} />
-        <Route path='/' element={<Home />}/>
+        <Route path='/' element={<Home isLoggedIn={isLoggedIn}/>}/>
 
         {/* Casefile  */}
-        <Route path='/casefiles/:id' element={<Casefile />}/>
+        <Route path='/casefiles/:id' element={<Casefile isLoggedIn={isLoggedIn}/>}/>
         <Route path='/casefiles/:id/evidence/:evidenceId' element={<Casefile />}/>
         <Route path='/casefiles/:id/investigators/:investigatorId' element={<Casefile />}/>
-        <Route path='/casefiles/new' element={<Add />}/>
-        <Route path='/casefiles' element={<All />}/>
+        <Route path='/casefiles/new' element={<Add isLoggedIn={isLoggedIn}/>}/>
+        <Route path='/casefiles' element={<All isLoggedIn={isLoggedIn}/>}/>
 
         {/* Investigator + Evidence */}
         <Route/>

@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import React from 'react';
 
 
 const Home = (props) => {
@@ -42,7 +43,8 @@ const Home = (props) => {
         <div>
             <h1 className='text-7xl font-bold text-center mt-10'>Welcome to CaseTrack</h1>
             <p className='text-lg text-center mt-10'>Fulfilling all your case file tracking needs.</p>
-            
+            {props.isLoggedIn ? 
+            <React.Fragment>
             <div className='text-center mt-20'>
                 <p>Click here to</p>
                 <Link to={'/casefiles/new'} className='text-4xl underline decoration-blue-500' style={{margin: 'auto'}}>Add a Casefile</Link>
@@ -64,6 +66,10 @@ const Home = (props) => {
                 <p>Click here to</p>
                 <Link to={'/casefiles'} className='text-4xl underline decoration-blue-500' style={{margin: 'auto'}}>See All Casefiles</Link>
             </div>
+            </React.Fragment>
+            : 
+            <h1 className='text-xl text-center mt-32'>Sign up / Log in to view case information.</h1>
+    }
         </div>
     )
 }

@@ -6,6 +6,7 @@ const Edit = ({getCase, oneCase, id}) => {
     const navigate = useNavigate()
     const [form, setForm] = useState(oneCase)
     const [editing, setEditing] = useState(false)
+    const token = localStorage.getItem("authToken")
 
     const updateCase = async (oneCase, id) => {
         console.log(oneCase)
@@ -14,6 +15,7 @@ const Edit = ({getCase, oneCase, id}) => {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
+                    "authorization": token
                 },
                 body: JSON.stringify(oneCase)
             })

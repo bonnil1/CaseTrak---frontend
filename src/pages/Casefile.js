@@ -8,7 +8,7 @@ import Investigator from '../components/Investigator';
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-const Casefile = () => {
+const Casefile = (props) => {
     const { id } = useParams();
     const [oneCase, setOneCase] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -36,6 +36,8 @@ const Casefile = () => {
 
     return (
         <div> 
+        {props.isLoggedIn ? (
+        <React.Fragment>
         {oneCase && (
             <div>
                 <h1 className='text-7xl font-bold text-center mt-10'>Showing Casefile</h1>
@@ -80,7 +82,7 @@ const Casefile = () => {
                     </div>
                     </div>
     <div className='text-center'> 
-    {oneCase && oneCase.evidence.length > 0 && (
+    
     <Menu as="div" className="relative inline-block text-right mb-96 mr-5">
         <div>
             <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-stone-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-stone-400">
@@ -102,11 +104,12 @@ const Casefile = () => {
                 <MenuItem>
                 {({ focus }) => (
                     <p>
+                        {oneCase && oneCase.evidence.length > 0 && (
                         <React.Fragment>
                             {oneCase.evidence.map((ev, index) => (
                             <React.Fragment key={index}>
-                                <div className="flex flex-col items-center mt-5">
-                                    <h3>Item Number: </h3>
+                                <div className="flex flex-col items-center mt-3 border border-blue-500 rounded-lg">
+                                    <h3 className='mt-2'>Item Number: </h3>
                                     <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                                         {ev.number}
                                     </h3>
@@ -125,10 +128,12 @@ const Casefile = () => {
                                     <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                                         {ev.location}
                                     </h3>
+                                    
                                 </div>
                             </React.Fragment>
                             ))}
                         </React.Fragment>
+                        )}
                     </p>
                 )}
                 </MenuItem>
@@ -136,8 +141,7 @@ const Casefile = () => {
             </MenuItems>
         </Transition>
     </Menu>
-    )}
-    {oneCase.investigator.length > 0 && (
+ 
     <Menu as="div" className="relative inline-block text-right mb-96">
         <div>
             <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-stone-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-stone-400">
@@ -159,11 +163,12 @@ const Casefile = () => {
                 <MenuItem>
                 {({ focus }) => (
                     <p> 
+                        {oneCase.investigator.length > 0 && (
                         <React.Fragment>
                             {oneCase.investigator.map((inv, index) => (
                                 <React.Fragment key={index}>
-                                    <div className="flex flex-col items-center mt-5">
-                                    <h3>Name: </h3>
+                                    <div className="flex flex-col items-center mt-3 border border-blue-500 rounded-lg">
+                                    <h3 className='mt-2'>Name: </h3>
                                     <h3 className='appearance-none block text-left w-1/2 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                                         {inv.name}
                                     </h3>
@@ -186,6 +191,7 @@ const Casefile = () => {
                                 </React.Fragment>
                             ))}
                         </React.Fragment>
+                        )}
                     </p>
                 )}
                 </MenuItem>
@@ -193,10 +199,13 @@ const Casefile = () => {
             </MenuItems>
         </Transition>
     </Menu>
-    )}
     </div>
             </div>
         )}
+        </React.Fragment>
+        ) : 
+        <h1 className='text-xl text-center mt-32'>Sign up / Log in to view case information.</h1>
+        }
     </div>
     )
 };

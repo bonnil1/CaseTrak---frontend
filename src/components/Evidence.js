@@ -6,6 +6,7 @@ const Evidence = ({getCase, id}) => {
     const navigate = useNavigate()
     const [addEvidence, setAddEvidence] = useState(false)
     const [formData, setFormData] = useState({})
+    const token = localStorage.getItem("authToken")
 
     const handleAdd = () => {
         setAddEvidence(true)
@@ -21,7 +22,8 @@ const Evidence = ({getCase, id}) => {
             const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}/evidence`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "authorization": token
                 },
                 body: JSON.stringify(formData)
             })
