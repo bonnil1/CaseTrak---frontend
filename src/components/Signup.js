@@ -19,25 +19,26 @@ const Signup = (props) => {
       <div className="flex justify-center items-center">
       <form onSubmit={handleSubmit} className='mt-20'>
         <label>Username: </label>
-        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2 border-black'
           name="username"
           placeholder="enter username"
           onChange={handleChange}
         ></input>
         <label>Password: </label>
         <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+          type="password"
           name="password"
           placeholder="enter password"
           onChange={handleChange}
         ></input>
         <label>Email: </label>
-        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2 border-black'
           name="email"
           placeholder="enter email"
           onChange={handleChange}
         ></input>
         <label>Unit: </label>
-        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'
+        <input className='appearance-none block bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2 border-black'
           name="unit"
           placeholder="enter unit"
           onChange={handleChange}

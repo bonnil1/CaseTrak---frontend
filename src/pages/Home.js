@@ -52,7 +52,7 @@ const Home = (props) => {
             
             <h1 className='text-4xl text-center mt-20'>Search for a Casefile</h1>
             <form onSubmit={handleSubmit} className='text-center mt-10'>
-                <input className='appearance-none w-2/12 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-200'
+                <input className='appearance-none w-56 bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-200'
                     name="case_number"
                     placeholder="enter case number"
                     onChange={handleChange}
@@ -61,7 +61,7 @@ const Home = (props) => {
             </form>
             {response === false ? (
                 <h1 className='text-center text-red-500'>No case file with that case number exists.</h1>
-            ) : null}
+            ) : (null)}
             <div className='text-center mt-20 mb-10'>
                 <p>Click here to</p>
                 <Link to={'/casefiles'} className='text-4xl underline decoration-blue-500' style={{margin: 'auto'}}>See All Casefiles</Link>

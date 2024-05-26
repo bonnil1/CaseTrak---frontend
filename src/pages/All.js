@@ -33,7 +33,11 @@ const All = (props) => {
                 ))}
             </React.Fragment>
                 : 
-            <h1 className='text-xl text-center mt-32'>Sign up / Log in to view case information.</h1>
+            <div>
+                <h1 className='text-7xl font-bold text-center mt-10'>Welcome to CaseTrack</h1>
+                <p className='text-lg text-center mt-10'>Fulfilling all your case file tracking needs.</p>
+                <h1 className='text-xl text-center mt-32'>Sign up / Log in to view case information.</h1>
+            </div>
         }
         </div>
     )

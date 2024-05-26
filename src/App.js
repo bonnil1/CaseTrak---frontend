@@ -13,7 +13,7 @@ import { useState, useEffect } from 'react';
 function App() {
   //Login + Signup + Auth
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const[user, setUser] = useState(null)
+  const [resp, setResp] = useState(null)
   const navigate = useNavigate()
 
   const handleSignUp = async(user) => {
@@ -38,26 +38,23 @@ function App() {
         },
         body: JSON.stringify(user)
     })
-
+    setResp(response.status)
     const data = await response.json()
-
-    console.log(data)
+    
+    if(response.status !== 200){
+      return data
+    } else {
+      console.log(data)
+    }
     
     localStorage.setItem("authToken", data.access_token)
     localStorage.setItem("username", user.username)
-
-    console.log(user)
     
-    setUser({
-      username: user.username,
-    })
-
     setIsLoggedIn(true)
     navigate("/")  
 }
 
   const handleLogout = () => {
-    console.log("in handle log")
     localStorage.removeItem("authToken")
     localStorage.removeItem("username")
     setIsLoggedIn(false)
@@ -79,7 +76,7 @@ function App() {
       <Routes>
         {/* Login / Sign up */}
         {/*<Route path='/auth' element={<Auth />}/>*/}
-        <Route path='/login' element={<Login handleLogin={handleLogin}/>} />
+        <Route path='/login' element={<Login handleLogin={handleLogin} resp={resp}/>} />
         <Route path='signup' element={<Signup handleSignUp={handleSignUp} />} />
         <Route path='/' element={<Home isLoggedIn={isLoggedIn}/>}/>
 

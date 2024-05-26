@@ -6,6 +6,7 @@ const Add = (props) => {
 
   const navigate = useNavigate()
   const [formData, setFormData] = useState({})
+  const [response, setResponse] = useState(null)
   const token = localStorage.getItem("authToken")
   
 
@@ -20,6 +21,7 @@ const Add = (props) => {
         },
         body: JSON.stringify(formData)
       });
+      setResponse(response.status)
       if (response.ok) {
         const data = await response.json()
         //console.log(data)
@@ -72,12 +74,19 @@ const Add = (props) => {
               placeholder="enter status"
               onChange={handleChange}
             ></input>
+            {response === 500 ? (
+              <h1 className='text-center text-red-500'>A casefile with the entered case number already exists.</h1>
+            ) : (null)}
             <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3'>Submit</button>
           </form>
           </div>
           </React.Fragment>
       : 
-      <h1 className='text-xl text-center mt-32'>Sign up / Log in to view case information.</h1>
+      <div>
+        <h1 className='text-7xl font-bold text-center mt-10'>Welcome to CaseTrack</h1>
+        <p className='text-lg text-center mt-10'>Fulfilling all your case file tracking needs.</p>
+        <h1 className='text-xl text-center mt-32'>Sign up / Log in to view case information.</h1>
+      </div>
       }
     </div>
   )

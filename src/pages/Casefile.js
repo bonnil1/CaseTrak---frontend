@@ -47,32 +47,32 @@ const Casefile = (props) => {
                     <Delete id={id}/>
                 </div>
                     <h3>Case Number: </h3>
-                    <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                    <h3 className='appearance-none block w-60 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                         {oneCase.case_number}
                     </h3>
     
                     <h3>Offense: </h3>
-                    <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                    <h3 className='appearance-none block w-60 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                         {oneCase.offense}
                     </h3>
     
                     <h3>Offense Date: </h3>
-                    <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                    <h3 className='appearance-none block w-60 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                         {oneCase.offense_date}
                     </h3>
     
                     <h3>Request: </h3>
-                    <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                    <h3 className='appearance-none block w-60 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                         {oneCase.request}
                     </h3>
     
                     <h3>Status: </h3>
-                    <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                    <h3 className='appearance-none block w-60 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                         {oneCase.status}
                     </h3>
     
                     <h3>Date Created:</h3>
-                    <h3 className='appearance-none block w-1/6 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
+                    <h3 className='appearance-none block w-60 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                         {new Date(oneCase.createdAt).toLocaleDateString()}
                     </h3>
     
@@ -204,7 +204,11 @@ const Casefile = (props) => {
         )}
         </React.Fragment>
         ) : 
-        <h1 className='text-xl text-center mt-32'>Sign up / Log in to view case information.</h1>
+        <div>
+            <h1 className='text-7xl font-bold text-center mt-10'>Welcome to CaseTrack</h1>
+            <p className='text-lg text-center mt-10'>Fulfilling all your case file tracking needs.</p>
+            <h1 className='text-xl text-center mt-32'>Sign up / Log in to view case information.</h1>
+        </div>
         }
     </div>
     )
