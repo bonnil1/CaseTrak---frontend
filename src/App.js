@@ -38,22 +38,18 @@ function App() {
         },
         body: JSON.stringify(user)
     })
+
     const data = await response.json()
-    if(response.status !== 200 || !data.token){
-        return data
-    } else {
-        console.log(data)
-    }
-    localStorage.setItem("authToken", data.acess_token)
-    localStorage.setItem("userId", data.id)
+
+    console.log(data)
+    
+    localStorage.setItem("authToken", data.access_token)
     localStorage.setItem("username", user.username)
 
     console.log(user)
-    console.log(data.id)
     
     setUser({
       username: user.username,
-      _id: data.id 
     })
 
     setIsLoggedIn(true)
@@ -63,7 +59,6 @@ function App() {
   const handleLogout = () => {
     console.log("in handle log")
     localStorage.removeItem("authToken")
-    localStorage.removeItem("userId")
     localStorage.removeItem("username")
     setIsLoggedIn(false)
     navigate("/login")
@@ -80,7 +75,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
       <Routes>
         {/* Login / Sign up */}
         {/*<Route path='/auth' element={<Auth />}/>*/}
