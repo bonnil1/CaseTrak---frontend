@@ -27,8 +27,11 @@ const All = (props) => {
             <React.Fragment>
                 <h1 className='text-7xl font-bold text-center mt-10'>Viewing All Casefiles</h1>
                 {casefiles.map((casefile) => (
+                    <div>
                     <div key={casefile._id} className='text-2xl text-center mt-10 underline decoration-sky-500'>
                         <Link to={`/casefiles/${casefile._id}`}>Case Number: {casefile.case_number}</Link>
+                    </div>
+                    <p className='text-sm text-center'>created: {new Date(casefile.createdAt).toLocaleDateString()}</p>
                     </div>
                 ))}
             </React.Fragment>
