@@ -13,6 +13,7 @@ const Casefile = (props) => {
     const { id } = useParams();
     const [oneCase, setOneCase] = useState(null);
     const [loading, setLoading] = useState(true);
+    const token = localStorage.getItem("authToken")
 
     const getCase = async () => {
         try {
