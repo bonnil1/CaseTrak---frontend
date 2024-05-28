@@ -5,6 +5,7 @@ import Edit from '../components/Edit';
 import Delete from '../components/Delete';
 import Evidence from '../components/Evidence';
 import Investigator from '../components/Investigator';
+import File from '../components/File';
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
@@ -75,6 +76,10 @@ const Casefile = (props) => {
                     <h3 className='appearance-none block w-60 bg-blue-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-blue-100 mt-2'>
                         {new Date(oneCase.createdAt).toLocaleDateString()}
                     </h3>
+
+                    <div className='flex mt-2'>
+                        <File />
+                    </div>
     
                     <div className='flex mt-5 mb-10'>
                         <Evidence getCase={getCase} id={id} />
