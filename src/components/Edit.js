@@ -1,9 +1,7 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 
 const Edit = ({getCase, oneCase, id}) => {
 
-    const navigate = useNavigate()
     const [form, setForm] = useState(oneCase)
     const [editing, setEditing] = useState(false)
     const token = localStorage.getItem("authToken")

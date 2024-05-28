@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 const Evidence = ({getCase, id}) => {
 
-    const navigate = useNavigate()
     const [addEvidence, setAddEvidence] = useState(false)
     const [formData, setFormData] = useState({})
     const token = localStorage.getItem("authToken")
