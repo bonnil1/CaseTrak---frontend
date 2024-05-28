@@ -28,7 +28,7 @@ A laboratory information management system that fulfills all your case file trac
 - Tailwind UI Documentation <br/>
 
 ## Click to view CaseTrak:
-- [Live View]( **insert link here** 'Live View') 
+- [Live View](https://casetrak-backend-c956cbec51a7.herokuapp.com 'Live View') 
 - [Frontend Repo](https://github.com/bonnil1/CaseTrak---frontend 'CaseTrak Frontend')
 - [Backend Repo](https://github.com/bonnil1/CaseTrak 'CaseTrak Backend')
 
