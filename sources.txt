@@ -1,0 +1,19 @@
+Complete List of Sources Used (Frontend + Backend):
+
+Nest.js Documentation
+Tailwind CSS Documentation
+Tailwind UI Documentation
+Lecture Notes
+Stack Overflow
+ChatGPT
+Nest.js Crash Course - Net Ninja - YouTube
+
+https://blog.logrocket.com/full-stack-app-tutorial-nestjs-react/
+
+https://www.linkedin.com/pulse/nestjs-app-authentication-login-signup-moaz-irfan
+
+https://medium.com/@nikmacentosh/deploying-nestjs-server-to-heroku-guide-46e36f8ce779
+
+https://medium.com/@chinazamaudline/solving-heroku-deployment-issues-with-react-apps-67caefad4f02
+
+https://medium.com/how-to-react/how-to-upload-files-on-an-s3-bucket-in-react-js-97a3ccd519d1

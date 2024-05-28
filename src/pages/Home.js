@@ -12,14 +12,14 @@ const Home = (props) => {
     const fetchCasefile = async () => {
         try {
             const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/?case_number=${search.case_number}`);
-            console.log(search.case_number)
+            //console.log(search.case_number)
             if (!response.ok) {
                 throw new Error("Cannot fetch casefile.")
             }
             const data = await response.json()
                 console.log(data)
             const id = data._id
-                console.log(data._id)
+                //console.log(data._id)
             setOneCase(data)
             navigate(`/casefiles/${id}`)
         } catch (error) {
@@ -29,12 +29,12 @@ const Home = (props) => {
     }
 
     const handleChange = (e) => {
-        console.log("entering search...")
+        //console.log("entering search...")
         setSearch({...search, [e.target.name]: e.target.value})
     }
 
     const handleSubmit = (e) => {
-        console.log("search submitted")
+        //console.log("search submitted")
         e.preventDefault()
         fetchCasefile(search.case_number)
     }
