@@ -16,7 +16,13 @@ const Casefile = (props) => {
 
     const getCase = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}`);
+            const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+            });
             const data = await response.json();
             console.log(data)
             setOneCase(data);

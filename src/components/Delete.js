@@ -9,7 +9,7 @@ const Delete = ({id}) => {
         await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}`, {
             method: "DELETE",
             headers: {
-                "authorization": token 
+                "Authorization": `Bearer ${token}`
             }
         })
     }
