@@ -18,8 +18,8 @@ const File = () => {
         const REGION = 'us-west-1'
 
         AWS.config.update({
-            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+            //accessKeyId: 
+            //secretAccessKey: 
         });
 
         const s3 = new AWS.S3({
