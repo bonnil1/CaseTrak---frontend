@@ -13,7 +13,7 @@ const Edit = ({getCase, oneCase, id}) => {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
+                    "authorization": token
                 },
                 body: JSON.stringify(oneCase)
             })

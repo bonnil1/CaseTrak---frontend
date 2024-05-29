@@ -13,17 +13,10 @@ const Casefile = (props) => {
     const { id } = useParams();
     const [oneCase, setOneCase] = useState(null);
     const [loading, setLoading] = useState(true);
-    const token = localStorage.getItem("authToken")
 
     const getCase = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                },
-            });
+            const response = await fetch(`${process.env.REACT_APP_URL}/casefiles/${id}`);
             const data = await response.json();
             console.log(data)
             setOneCase(data);

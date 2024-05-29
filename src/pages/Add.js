@@ -17,7 +17,7 @@ const Add = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          "authorization": token 
         },
         body: JSON.stringify(formData)
       });
